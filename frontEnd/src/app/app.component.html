@@ -1,0 +1,100 @@
+<div id="app">
+    <!-- <nav class="navbar navbar-expand navbar-dark" style="background-color: #E20074">
+       <a class="navbar-brand" href="#" style="color: #f7f7f7">
+         <svg class="bi bi-device-hdd-fill" fill="currentColor" height="30" viewBox="0 0 16 16" width="30"
+              xmlns="http://www.w3.org/2000/svg">
+           <path
+             d="M8.785 9.896A3.001 3.001 0 0 0 8 4a3 3 0 0 0-.891 5.865c.667-.44 1.396-.91 1.955-1.268.224-.144.483.115.34.34l-.62.96ZM9 7a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/>
+           <path
+             d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4Zm9 1.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm0 13a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm-9.5.5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1ZM4 1.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm2.882 11.177a1.102 1.102 0 0 1-1.56-1.559c.1-.098.396-.314.795-.588a4 4 0 1 1 1.946.47c-.537.813-1.02 1.515-1.181 1.677Z"/>
+         </svg>
+         MagentaDrive
+       </a>
+       <ul  class="navbar-nav mr-auto" routerLinkActive="active">
+         <li *ngIf="!isLoggedIn" class="nav-item">
+           <a class="nav-link" href="/home" routerLink="home" style="color: #f7f7f7">Home </a>
+         </li>
+         <li *ngIf="showAdminBoard" class="nav-item">
+           <a class="nav-link" href="/admin" routerLink="admin" style="color: #f7f7f7">Admin Board</a>
+         </li>
+
+         <li class="nav-item">
+           <a *ngIf="isLoggedIn" class="nav-link" href="/user" routerLink="user" style="color: #f7f7f7">User</a>
+         </li>
+         <li class="nav-item">
+           <a *ngIf="isLoggedIn" class="nav-link" href="" routerLink="" style="color: #f7f7f7">Forum</a>
+         </li>
+         <li class="nav-item">
+           <a *ngIf="isLoggedIn" class="nav-link" href="" routerLink="" style="color: #f7f7f7">Dateien</a>
+         </li>
+       </ul>
+
+       <ul *ngIf="!isLoggedIn" class="navbar-nav ml-auto">
+         <li class="nav-item">
+           <a class="nav-link" href="/register" routerLink="register" style="color: #f7f7f7">Sign Up</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="/login" routerLink="login" style="color: #f7f7f7">Login</a>
+         </li>
+       </ul>
+
+       <ul *ngIf="isLoggedIn" class="navbar-nav ml-auto">
+        <li>
+          <div class="input-group-text" style="background-color: #E20074; border-color: #E20074" >
+            <input type="text" class="form-control" placeholder="Search">
+              <button class="btn btn-group"   type="submit" style = "color: #f7f7f7">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </button>
+          </div>
+        </li>
+         <li class="nav-item">
+           <a class="nav-link" href="/profile" routerLink="profile" style="color: #f7f7f7">Mein Profil</a>
+         </li>
+         <li class="nav-item">
+           <a (click)="logout()" class="nav-link" href style="color: #f7f7f7">LogOut</a>
+         </li>
+       </ul>
+     </nav>
+   -->
+    <body>
+    <scale-app-shell>
+        <scale-app-header id="header" slot="header">
+            <div slot="menu-addon">
+
+                <scale-nav-segment
+                        *ngIf="!isLoggedIn" href="/register" name="Registrieren">Registrieren
+                </scale-nav-segment>
+
+                <scale-nav-segment
+                        *ngIf="!isLoggedIn" href="/login" id="nav-main-with-mega-menu" name="Login">Login
+                </scale-nav-segment>
+
+                <scale-nav-segment
+                        (click)="logout()" *ngIf="isLoggedIn" id="nav-main-with-mega-menu" name="Logout">Logout
+                </scale-nav-segment>
+                <scale-nav-segment
+                        *ngIf="isLoggedIn" href="/profil" id="nav-main-with-mega-menu" name="profil">Profil
+                </scale-nav-segment>
+
+
+            </div>
+            <div slot="menu-main">
+                <scale-nav-main *ngIf="isLoggedIn" href="/home" name="Home"></scale-nav-main>
+                <scale-nav-main *ngIf="isLoggedIn" active name="Datein"></scale-nav-main>
+                <scale-nav-main *ngIf="isLoggedIn" name="Forum"></scale-nav-main>
+
+            </div>
+        </scale-app-header>
+
+        <router-outlet></router-outlet>
+    </scale-app-shell>
+
+
+    </body>
+
+
+</div>
+
+
