@@ -1,0 +1,116 @@
+﻿<style>
+  :host {
+    font-family:"telegrotesk-next",Calibri,"PT Sans Narrow",sans-serif;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 25px;
+
+  }
+  .header a{
+    color: white;
+    font-size: 25px;
+  }
+  .header-left{
+    position: relative;
+    right: 900px;
+    margin-right: 25px;
+  }
+  .header-right{
+    position: relative;
+    right: 100px;
+    margin-right: 5px;
+  }
+  .footer{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+  }
+  .navbar-nav-search{
+    margin-left: 20px;
+  }
+  .searchbutton{
+    margin-top: 5px;
+  }
+  a:link{
+    color: white;
+  }
+  .header b{
+    margin-top: 5000px;
+    color: #E10075;
+    font-size: 25px
+  }
+</style>
+<!-- main app container -->
+<div class="app-container" [ngClass]="{ 'bg-light': user }">
+  <alert></alert>
+  <router-outlet></router-outlet>
+</div>
+
+<div class="header" role="banner" >
+  <scale-app-header slot="header" id="header">
+    <div slot="menu-addon">
+      <scale-nav-segment *ngIf="user">
+        <div class="header-left">
+          <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </div>
+      </scale-nav-segment>
+
+      <scale-nav-segment *ngIf="user">
+        <div class="header-left">
+          <a class="nav-item nav-link" routerLink="/overview" routerLinkActive="active">Upload</a>
+        </div>
+      </scale-nav-segment>
+
+      <scale-nav-segment *ngIf="user">
+        <div class="header-left">
+          <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        </div>
+      </scale-nav-segment>
+
+      <scale-nav-segment *ngIf="user">
+        <div class="header-right">
+          <a class="nav-item nav-link" (click)="logout()">Logout</a>
+        </div>
+      </scale-nav-segment>
+
+      <scale-nav-segment *ngIf="user">
+        <div class="header-right">
+          <div class="navbar-nav-search">
+            <scale-text-field size="small" label="Suchen" placeholder="Altklausuren Mathe 2"></scale-text-field>
+            <b>Testtextlänge</b>
+          </div>
+        </div>
+      </scale-nav-segment>
+
+
+      <scale-nav-segment *ngIf="user">
+        <div class="header-right">
+          <div class="searchbutton">
+            <scale-button size="small">
+              <scale-icon-action-search></scale-icon-action-search>Starten
+            </scale-button>
+          </div>
+        </div>
+      </scale-nav-segment>
+
+    </div>
+  </scale-app-header>
+</div>
+
+<div class="footer">
+  <scale-app-footer :variant="variant">
+    <div slot="navigation">
+      <p>Contact:  <a href="mailto:wedontcare@fuckoff.com">Email</a> </p>
+    </div>
+  </scale-app-footer>
+</div>
