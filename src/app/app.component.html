@@ -13,27 +13,33 @@
     left: 0;
     right: 0;
     font-size: 25px;
-
   }
   .header a{
     color: white;
     font-size: 25px;
   }
+  .header h1{
+    font-size: 1px;
+    margin-left: 900px;
+  }
+
   .header-left{
-    position: relative;
-    right: 900px;
+    margin-top: 25px;
     margin-right: 25px;
   }
   .header-right{
-    position: relative;
-    right: 100px;
+    margin-top: 25px;
     margin-right: 5px;
+
   }
   .footer{
     position: fixed;
     bottom: 0px;
     right: 0px;
     left: 0px;
+  }
+  .footer a:link{
+    color: white;
   }
   .navbar-nav-search{
     margin-left: 20px;
@@ -44,8 +50,7 @@
   a:link{
     color: white;
   }
-  .header b{
-    margin-top: 5000px;
+  .header h2{
     color: #E10075;
     font-size: 25px
   }
@@ -59,40 +64,42 @@
 <div class="header" role="banner" >
   <scale-app-header slot="header" id="header">
     <div slot="menu-addon">
+
       <scale-nav-segment *ngIf="user">
         <div class="header-left">
           <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
         </div>
       </scale-nav-segment>
-
       <scale-nav-segment *ngIf="user">
         <div class="header-left">
           <a class="nav-item nav-link" routerLink="/overview" routerLinkActive="active">Upload</a>
         </div>
       </scale-nav-segment>
-
       <scale-nav-segment *ngIf="user">
         <div class="header-left">
           <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
         </div>
       </scale-nav-segment>
 
+        <div class="header-middle">
+          <h1>Placeholder</h1>
+        </div>
+
+
+
       <scale-nav-segment *ngIf="user">
         <div class="header-right">
           <a class="nav-item nav-link" (click)="logout()">Logout</a>
         </div>
       </scale-nav-segment>
-
       <scale-nav-segment *ngIf="user">
         <div class="header-right">
           <div class="navbar-nav-search">
             <scale-text-field size="small" label="Suchen" placeholder="Altklausuren Mathe 2"></scale-text-field>
-            <b>Testtextlänge</b>
+            <h2>Testtextlänge</h2>
           </div>
         </div>
       </scale-nav-segment>
-
-
       <scale-nav-segment *ngIf="user">
         <div class="header-right">
           <div class="searchbutton">
@@ -102,7 +109,6 @@
           </div>
         </div>
       </scale-nav-segment>
-
     </div>
   </scale-app-header>
 </div>
@@ -110,7 +116,7 @@
 <div class="footer">
   <scale-app-footer :variant="variant">
     <div slot="navigation">
-      <p>Contact:  <a href="mailto:wedontcare@fuckoff.com">Email</a> </p>
+      <p>Contact:  <a href="MagentaDrive@mg.telekom.de">Email  </a> <a href="https://teltec.telekom.de/?login=1&imprint=1#p_privacy">Datenschutz  </a> <a href="https://teltec.telekom.de/?login=1&imprint=1#p_imprint">Impressum </a> </p>
     </div>
   </scale-app-footer>
 </div>

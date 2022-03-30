@@ -14,6 +14,7 @@
     border-color: #a00053;
   }
   .card {
+    margin-bottom: 100px;
     margin-top: 150px;
   }
   a {
@@ -43,6 +44,24 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="jahrgang">Jahrgang</label>
+                <input type="text" formControlName="jahrgang" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.jahrgang.errors }" />
+                <div *ngIf="submitted && f.jahrgang.errors" class="invalid-feedback">
+                    <div *ngIf="f.jahrgang.errors.required">Jahrgang is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hochschule">Hochschule</label>
+                <select id="hochschulen" name="hochschulen" formControlName="hochschule" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.hochschule.errors }">
+                  <option value="Provadis">Provadis</option>
+                  <option value="FOM">FOM</option>
+                  <option value="HTWK">HTWK</option>
+                </select>
+                <div *ngIf="submitted && f.hochschule.errors" class="invalid-feedback">
+                    <div *ngIf="f.hochschule.errors.required">Hochschule is required</div>
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
@@ -67,3 +86,4 @@
         </form>
     </div>
 </div>
+

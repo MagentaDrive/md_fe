@@ -1,4 +1,8 @@
 ﻿<style>
+  h1{
+    padding-top: 150px;
+  }
+
   button{
     color: white;
     background: #E20074;
@@ -47,24 +51,44 @@
     </div>
     <div class="form-row">
         <div class="form-group col">
-            <label for="username">Username</label>
-            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                <div *ngIf="f.username.errors.required">Username is required</div>
-            </div>
+          <label for="hochschule">Hochschule</label>
+          <select id="hochschulen" name="hochschulen" formControlName="hochschule" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.hochschule.errors }">
+            <option value="Provadis">Provadis</option>
+            <option value="FOM">FOM</option>
+            <option value="HTWK">HTWK</option>
+          </select>
+          <div *ngIf="submitted && f.hochschule.errors" class="invalid-feedback">
+            <div *ngIf="f.hochschule.errors.required">Hochschule is required</div>
+          </div>
         </div>
         <div class="form-group col">
-            <label for="password">
-                Password
-                <em *ngIf="!isAddMode">(Leave blank to keep the same password)</em>
-            </label>
-            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                <div *ngIf="f.password.errors.required">Password is required</div>
-                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-            </div>
+          <label for="jahrgang">Jahrgang</label>
+          <input type="text" formControlName="jahrgang" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.jahrgang.errors }" />
+          <div *ngIf="submitted && f.jahrgang.errors" class="invalid-feedback">
+            <div *ngIf="f.jahrgang.errors.required">Jahrgang is required</div>
+          </div>
         </div>
     </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label for="username">Username</label>
+          <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+        </div>
+        <div class="form-group col">
+          <label for="password">
+            Password
+            <em *ngIf="!isAddMode">(Leave blank to keep the same password)</em>
+          </label>
+          <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+        </div>
+      </div>
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
