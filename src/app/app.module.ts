@@ -23,7 +23,8 @@ import { HomeComponent } from './home';;
     declarations: [
         AppComponent,
         AlertComponent,
-        HomeComponent,],
+        HomeComponent,
+        ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

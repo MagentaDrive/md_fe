@@ -55,6 +55,7 @@
     font-size: 25px
   }
 </style>
+
 <!-- main app container -->
 <div class="app-container" [ngClass]="{ 'bg-light': user }">
   <alert></alert>
@@ -78,6 +79,11 @@
       <scale-nav-segment *ngIf="user">
         <div class="header-left">
           <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        </div>
+      </scale-nav-segment>
+      <scale-nav-segment *ngIf="user">
+        <div class="header-left">
+          <a class="nav-item nav-link" routerLink="/documents" routerLinkActive="active">Documents</a>
         </div>
       </scale-nav-segment>
 

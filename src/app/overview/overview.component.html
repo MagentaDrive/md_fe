@@ -9,8 +9,14 @@
    padding-left: 100px;
  }
 
-  .textfeld-button{
+  .file-upload{
     padding-top: 20px;
+    padding-left: 100px;
+  }
+ .file-input {
+   display: none;
+ }
+  .commit-file{
     padding-left: 100px;
   }
 </style>
@@ -51,7 +57,22 @@
 
   </div>
 </div>
-  <div class="textfeld-button">
-  <scale-button>Hochladen</scale-button>
-  </div>
 
+<input type="file" class="file-input"
+       (change)="onFileSelected($event)" #fileUpload>
+
+<div class="file-upload">
+
+  {{fileName || "Keine Datei ausgewählt"}}
+
+  <scale-button mat-mini-fab color="primary" class="upload-btn"
+          (click)="fileUpload.click()">
+    <mat-icon>Datei hinzufügen</mat-icon>
+  </scale-button>
+</div>
+
+<div class="commit-file">
+  <scale-button>
+    Hochladen
+  </scale-button>
+</div>

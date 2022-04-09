@@ -12,6 +12,7 @@ const routes: Routes = [
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
     { path: 'overview', loadChildren: () => import('./overview/overview.module').then(m => m.OverviewModule) },
+    { path: 'documents', loadChildren: () => import('./documents/documents.module').then(m => m.DocumentsModule) },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
