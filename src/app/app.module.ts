@@ -11,6 +11,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './_components';
 import { HomeComponent } from './home';;
+import { TestAPIComponent } from './test-api/test-api.component';
 
 @NgModule({
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -23,7 +24,8 @@ import { HomeComponent } from './home';;
     declarations: [
         AppComponent,
         AlertComponent,
-        HomeComponent,
+        HomeComponent,,
+        TestAPIComponent
         ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
