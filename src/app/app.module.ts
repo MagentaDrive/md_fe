@@ -1,37 +1,43 @@
-﻿import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {TextValueAccessorDirective} from '../directives/text-value-accessor';
+import {CheckedValueAccessorDirective} from '../directives/checked-value-accessor';
+import {NumberValueAccessorDirective} from '../directives/number-value-accessor';
 
-// used to create fake backend
-import { fakeBackendProvider } from './_helpers';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {LoginComponent} from './login/login.component';
+import {SignupComponent} from './SignUp/sign_up.component';
+import {HomeComponent} from './home/home.component';
+import {ProfileComponent} from './profile/profile.component';
 
-import { AppRoutingModule } from './app-routing.module';
-import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-import { AppComponent } from './app.component';
-import { AlertComponent } from './_components';
-import { HomeComponent } from './home';;
+
+import {authInterceptorProviders} from './_helpers/auth.interceptor';
 
 @NgModule({
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        AppRoutingModule
-    ],
     declarations: [
         AppComponent,
-        AlertComponent,
+        LoginComponent,
+        SignupComponent,
         HomeComponent,
-        ],
-    providers: [
-        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
-        // provider used to create fake backend
-        fakeBackendProvider
+        ProfileComponent,
+        TextValueAccessorDirective,
+        CheckedValueAccessorDirective,
+        NumberValueAccessorDirective,
     ],
-    bootstrap: [AppComponent]
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule
+
+    ],
+    providers: [authInterceptorProviders],
+    bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { };
+export class AppModule {
+}
