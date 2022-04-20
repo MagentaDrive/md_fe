@@ -1,26 +1,24 @@
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { HomeComponent } from './home';
-import { AuthGuard } from './_helpers';
-
-const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
-const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
+import {SignupComponent} from './SignUp/sign_up.component';
+import {LoginComponent} from './login/login.component';
+import {HomeComponent} from './home/home.component';
+import {ProfileComponent} from './profile/profile.component';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-    { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
-    { path: 'account', loadChildren: accountModule },
-    { path: 'overview', loadChildren: () => import('./overview/overview.module').then(m => m.OverviewModule) },
-    { path: 'documents', loadChildren: () => import('./documents/documents.module').then(m => m.DocumentsModule) },
+    {path: 'home', component: HomeComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'register', component: SignupComponent},
+    {path: 'profile', component: ProfileComponent},
 
-    // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    {path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 
 @NgModule({
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
