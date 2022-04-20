@@ -86,6 +86,11 @@
           <a class="nav-item nav-link" routerLink="/documents" routerLinkActive="active">Documents</a>
         </div>
       </scale-nav-segment>
+      <scale-nav-segment *ngIf="user">
+        <div class="header-left">
+          <a class="nav-item nav-link" routerLink="/test-api" routerLinkActive="active">API</a>
+        </div>
+      </scale-nav-segment>
 
         <div class="header-middle">
           <h1>Placeholder</h1>

@@ -12,7 +12,7 @@ export class TestAPIComponent implements OnInit {
   constructor(private http : HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('localhost:8081')
+    this.http.get('http://www.mocky.io/v2/5ea172973100002d001eeada')
       .subscribe(Response => {
 
         // If response comes hideloader() function is called

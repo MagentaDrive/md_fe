@@ -13,6 +13,7 @@ const routes: Routes = [
     { path: 'account', loadChildren: accountModule },
     { path: 'overview', loadChildren: () => import('./overview/overview.module').then(m => m.OverviewModule) },
     { path: 'documents', loadChildren: () => import('./documents/documents.module').then(m => m.DocumentsModule) },
+    { path: 'test-api', loadChildren: () => import('./test-api/test-api.module').then(m => m.TestApiModule) },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
