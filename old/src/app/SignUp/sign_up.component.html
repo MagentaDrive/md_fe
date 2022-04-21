@@ -1,0 +1,73 @@
+<div style="max-width:  50%;margin-left: 25%; margin-top: 8%; overflow-y:auto">
+    <scale-card >
+        <h4 style="font-size: larger;"> Registrieren</h4>
+        <form (ngSubmit)="onSubmit()">
+
+
+            <p style="margin-top:auto">Vorname
+                <scale-text-field
+                        (input)="setVornameEvent($event)"
+                        formControlName="vorname"
+                        label="Vorname eingeben..."
+                >
+                </scale-text-field>
+            </p>
+
+
+            <p style="margin-top: auto">Nachname
+                <scale-text-field
+                        (input)="setNachnameEvent($event)"
+                        formControlName="nachname"
+                        label="Nachname eingeben..."
+                >
+                </scale-text-field>
+            </p>
+
+
+            <p style="margin-top: auto">Hochschule
+                <scale-text-field (input)="setHochschuleEvent($event)"
+                                  formControlName="hochschule"
+                                  label="Hochschule auswählen...">
+
+                </scale-text-field>
+            </p>
+            <p style="margin-top: auto">Jahrgang
+                <scale-text-field
+                label="Jahrgang auswählen">
+                
+                </scale-text-field>
+            </p>
+
+
+            <p style="margin-top: auto">Email
+                <scale-text-field
+                        (input)="setEmailEvent($event)"
+                        formControlName="email"
+                        label="Email eingeben..."
+                >
+                </scale-text-field>
+            </p>
+
+            <p style="margin-top: auto">Passwort
+                <scale-text-field (input)="setPasswordEvent($event)"
+                                  formControlName="password"
+                                  helper-text="Passwort vergessen? Pech!"
+                                  label="Passwort eingeben..."
+                                  type="password">
+                </scale-text-field>
+            </p>
+
+            <p>
+                <scale-button style="margin-left: 45%; margin-bottom: 50%;" type="submit">Registrieren</scale-button>
+            </p>
+
+            <div *ngIf="isSuccessful && !isSignUpFailed" style="color: green">
+                Sie wurden erfolgreich registriert
+            </div>
+            <div *ngIf="errorMessage" style="color: red">
+                {{errorMessage}}
+            </div>
+        </form>
+    </scale-card>
+    <div style="clear:both;"></div>
+</div>

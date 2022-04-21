@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\md_fe-master",
+    "\\md_fe-master\\src",
+    "\\md_fe-master\\src\\app",
+    "\\md_fe-master\\src\\app\\users",
+    "\\md_fe-master\\src\\app\\_components",
+    "\\md_fe-master\\src\\app\\_helpers",
+    "\\md_fe-master\\src\\app\\_models",
+    "\\md_fe-master\\src\\app\\_services",
+    "\\md_fe-master\\src\\environments"
+  ],
+  "SelectedNode": "\\md_fe-master\\src\\app\\account\\register.component.ts",
+  "PreviewInSolutionExplorer": false
+}

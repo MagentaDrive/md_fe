@@ -1,0 +1,89 @@
+<style>
+  button {
+    background: #E20074;
+    border: 1px solid darkred;
+    border-radius: 5px;
+  }
+  button:hover{
+    background-color: #d0006b;
+    border-color: #a00053;
+
+  }
+  button:active {
+    background-color: #d0006b;
+    border-color: #a00053;
+  }
+  .card {
+    margin-bottom: 100px;
+    margin-top: 150px;
+  }
+  a {
+    color: black;
+  }
+  a:hover{
+    color: black;
+  }
+</style>
+
+<div class="card">
+    <h4 class="card-header">Register</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="jahrgang">Studiengang</label>
+                <input type="text" formControlName="jahrgang" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.jahrgang.errors }" />
+                <div *ngIf="submitted && f.jahrgang.errors" class="invalid-feedback">
+                    <div *ngIf="f.jahrgang.errors.required">Jahrgang is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hochschule">Hochschule</label>
+                <select id="hochschulen" name="hochschulen" formControlName="hochschule" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.hochschule.errors }">
+                  <option value="Provadis">Provadis</option>
+                  <option value="FOM">FOM</option>
+                  <option value="HTWK">HTWK</option>
+                </select>
+                <div *ngIf="submitted && f.hochschule.errors" class="invalid-feedback">
+                    <div *ngIf="f.hochschule.errors.required">Hochschule is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Register
+                </button>
+                <a routerLink="../login" class="btn btn-link">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+

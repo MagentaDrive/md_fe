@@ -1,0 +1,38 @@
+<div style="max-width:  50%;margin-left: 25%; margin-top: 10%">
+    <scale-card>
+        <h4> Login</h4>
+        <form (ngSubmit)="onSubmit()">
+
+            <p style="margin-top: 5%">Email
+                <scale-text-field
+                        (input)="setEmailEvent($event)"
+                        formControlName="email"
+                        label="Email eingeben..."
+                >
+                </scale-text-field>
+            </p>
+
+            <p style="margin-top: 5%">Passwort
+                <scale-text-field (input)="setPasswordEvent($event)"
+                                  formControlName="password"
+                                  helper-text="Passwort vergessen? Pech!"
+                                  label="Passwort eingeben..."
+                                  type="password">
+                </scale-text-field>
+            </p>
+
+
+            <p>
+                <scale-button style="margin-left: 45%" type="submit">Login</scale-button>
+            </p>
+        </form>
+
+        <div *ngIf="isLoggedIn">
+            Login erfolgreich
+        </div>
+        <div *ngIf="errorMessage" style="color: red">
+            {{errorMessage}}
+        </div>
+
+    </scale-card>
+</div>

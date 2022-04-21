@@ -1,0 +1,78 @@
+<style>
+ .form-row{
+   padding-right: 100px;
+   padding-left: 100px;
+ }
+
+ h1{
+   padding-top: 150px;
+   padding-left: 100px;
+ }
+
+  .file-upload{
+    padding-top: 20px;
+    padding-left: 100px;
+  }
+ .file-input {
+   display: none;
+ }
+  .commit-file{
+    padding-left: 100px;
+  }
+</style>
+<h1>Upload</h1>
+<div class="form-row">
+  <div class="form-group col">
+    <label>Titel</label>
+    <input type="text" formControlName="titel" class="form-control" />
+  </div>
+  <div class="form-group col">
+    <label>Tags</label>
+    <input type="text" formControlName="tags" class="form-control" />
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col">
+    <label>Hochschule</label>
+    <select id="hochschulen" name="hochschulen" formControlName="hochschule" class="form-control">
+      <option value="Provadis">Provadis</option>
+      <option value="FOM">FOM</option>
+      <option value="HTWK">HTWK</option>
+    </select>
+  </div>
+  <div class="form-group col">
+    <label>Jahrgang</label>
+    <input type="text" formControlName="jahrgang" class="form-control" />
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col">
+    <label>Beschreibung</label>
+    <input type="text" formControlName="beschreibung" class="form-control" />
+
+  </div>
+  <div class="form-group col">
+    <label>Studiengang</label>
+    <input type="text" formControlName="studiengang" class="form-control" />
+
+  </div>
+</div>
+
+<input type="file" class="file-input"
+       (change)="onFileSelected($event)" #fileUpload>
+
+<div class="file-upload">
+
+  {{fileName || "Keine Datei ausgewählt"}}
+
+  <scale-button mat-mini-fab color="primary" class="upload-btn"
+          (click)="fileUpload.click()">
+    <mat-icon>Datei hinzufügen</mat-icon>
+  </scale-button>
+</div>
+
+<div class="commit-file">
+  <scale-button>
+    Hochladen
+  </scale-button>
+</div>
