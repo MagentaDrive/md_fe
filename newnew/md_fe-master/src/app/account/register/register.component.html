@@ -45,7 +45,10 @@
             </div>
             <div class="form-group">
                 <label for="jahrgang">Studiengang</label>
-                <input type="text" formControlName="jahrgang" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.jahrgang.errors }" />
+                <select id="jahrgang" name="jahrgang" formControlName="jahrgang" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.jahrgang.errors }">
+                    <option value="Informatik">Informatik</option>
+                    <option value="BWL">BWL</option>
+                  </select>
                 <div *ngIf="submitted && f.jahrgang.errors" class="invalid-feedback">
                     <div *ngIf="f.jahrgang.errors.required">Jahrgang is required</div>
                 </div>

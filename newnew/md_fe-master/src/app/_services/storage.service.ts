@@ -21,16 +21,19 @@ export class StorageService {
     }
    
   headers = new HttpHeaders()
-  .set('content-type', 'application/json')
-  .set('Access-Control-Allow-Origin', '*')
-  .set('Authorization',`Bearer ${ this.token.getToken()}`)
-  .set( 'Access-Control-Allow-Methods', "GET,POST,OPTIONS,DELETE,PUT" );
+  .set('authorization',`Bearer ${ this.token.getToken()}`)
+
 
     getAllDocs(){
         
-        console.log(`Bearer ${ this.token.getToken()}`)
+      
+        console.log(`bearer ${ this.token.getToken()}`)
         return this.http.get(AUTH_API + 'storage/files', 
            {headers : this.headers});
            
+    }
+
+    uploud(file: any, bucketName: string, uploader, postId, uni, course){
+      return this.http.post(AUTH_API +"storage/files",{}, {headers: this.headers})
     }
 }
