@@ -1,100 +1,140 @@
-<div id="app">
-    <!-- <nav class="navbar navbar-expand navbar-dark" style="background-color: #E20074">
-       <a class="navbar-brand" href="#" style="color: #f7f7f7">
-         <svg class="bi bi-device-hdd-fill" fill="currentColor" height="30" viewBox="0 0 16 16" width="30"
-              xmlns="http://www.w3.org/2000/svg">
-           <path
-             d="M8.785 9.896A3.001 3.001 0 0 0 8 4a3 3 0 0 0-.891 5.865c.667-.44 1.396-.91 1.955-1.268.224-.144.483.115.34.34l-.62.96ZM9 7a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/>
-           <path
-             d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4Zm9 1.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm0 13a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm-9.5.5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1ZM4 1.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm2.882 11.177a1.102 1.102 0 0 1-1.56-1.559c.1-.098.396-.314.795-.588a4 4 0 1 1 1.946.47c-.537.813-1.02 1.515-1.181 1.677Z"/>
-         </svg>
-         MagentaDrive
-       </a>
-       <ul  class="navbar-nav mr-auto" routerLinkActive="active">
-         <li *ngIf="!isLoggedIn" class="nav-item">
-           <a class="nav-link" href="/home" routerLink="home" style="color: #f7f7f7">Home </a>
-         </li>
-         <li *ngIf="showAdminBoard" class="nav-item">
-           <a class="nav-link" href="/admin" routerLink="admin" style="color: #f7f7f7">Admin Board</a>
-         </li>
 
-         <li class="nav-item">
-           <a *ngIf="isLoggedIn" class="nav-link" href="/user" routerLink="user" style="color: #f7f7f7">User</a>
-         </li>
-         <li class="nav-item">
-           <a *ngIf="isLoggedIn" class="nav-link" href="" routerLink="" style="color: #f7f7f7">Forum</a>
-         </li>
-         <li class="nav-item">
-           <a *ngIf="isLoggedIn" class="nav-link" href="" routerLink="" style="color: #f7f7f7">Dateien</a>
-         </li>
-       </ul>
+<style>
+  :host {
+    font-family: "telegrotesk-next",Calibri,"PT Sans Narrow",sans-serif;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-       <ul *ngIf="!isLoggedIn" class="navbar-nav ml-auto">
-         <li class="nav-item">
-           <a class="nav-link" href="/register" routerLink="register" style="color: #f7f7f7">Sign Up</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="/login" routerLink="login" style="color: #f7f7f7">Login</a>
-         </li>
-       </ul>
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 25px;
+  }
 
-       <ul *ngIf="isLoggedIn" class="navbar-nav ml-auto">
-        <li>
-          <div class="input-group-text" style="background-color: #E20074; border-color: #E20074" >
-            <input type="text" class="form-control" placeholder="Search">
-              <button class="btn btn-group"   type="submit" style = "color: #f7f7f7">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                </svg>
-              </button>
-          </div>
-        </li>
-         <li class="nav-item">
-           <a class="nav-link" href="/profile" routerLink="profile" style="color: #f7f7f7">Mein Profil</a>
-         </li>
-         <li class="nav-item">
-           <a (click)="logout()" class="nav-link" href style="color: #f7f7f7">LogOut</a>
-         </li>
-       </ul>
-     </nav>
-   -->
-    <body>
-    <scale-app-shell>
-        <scale-app-header id="header" slot="header">
-            <div slot="menu-addon">
+    .header a {
+      color: white;
+      font-size: 25px;
+    }
 
-                <scale-nav-segment
-                        *ngIf="!isLoggedIn" href="/register" name="Registrieren">Registrieren
-                </scale-nav-segment>
+    .header h1 {
+      font-size: 1px;
+      margin-left: 900px;
+    }
 
-                <scale-nav-segment
-                        *ngIf="!isLoggedIn" href="/login" id="nav-main-with-mega-menu" name="Login">Login
-                </scale-nav-segment>
+  .header-left {
+    margin-top: 25px;
+    margin-right: 5%;
+  }
 
-                <scale-nav-segment
-                        (click)="logout()" *ngIf="isLoggedIn" id="nav-main-with-mega-menu" name="Logout">Logout
-                </scale-nav-segment>
-                <scale-nav-segment
-                        *ngIf="isLoggedIn" href="/profil" id="nav-main-with-mega-menu" name="profil">Profil
-                </scale-nav-segment>
+  .header-right {
+    margin-top: 25px;
+    margin-right: 5px;
+  }
 
+  .footer {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+  }
 
-            </div>
-            <div slot="menu-main">
-                <scale-nav-main *ngIf="isLoggedIn" href="/home" name="Home"></scale-nav-main>
-                <scale-nav-main *ngIf="isLoggedIn" active name="Datein"></scale-nav-main>
-                <scale-nav-main *ngIf="isLoggedIn" name="Forum"></scale-nav-main>
+    .footer a:link {
+      color: white;
+    }
 
-            </div>
-        </scale-app-header>
+  .navbar-nav-search {
+    margin-left: 20px;
+  }
 
-        <router-outlet></router-outlet>
-    </scale-app-shell>
+  .searchbutton {
+    margin-top: 5px;
+  }
 
+  a:link {
+    color: white;
+  }
 
-    </body>
+  .header h2 {
+    color: #E10075;
+    font-size: 25px
+  }
+</style>
 
-
+<!-- main app container -->
+<div class="app-container" [ngClass]="{ 'bg-light': isLoggedIn }">
+  <alert></alert>
+  <router-outlet></router-outlet>
 </div>
 
+<div class="header" role="banner">
+  <scale-app-header slot="header" id="header">
+    <div slot="menu-addon">
 
+      <scale-nav-segment *ngIf="isLoggedIn">
+        <div class="header-left">
+          <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </div>
+      </scale-nav-segment>
+      <scale-nav-segment *ngIf="isLoggedIn">
+        <div class="header-left">
+          <a class="nav-item nav-link" routerLink="/overview" routerLinkActive="active">Upload</a>
+        </div>
+      </scale-nav-segment>
+      <scale-nav-segment *ngIf="isLoggedIn" >
+        <div class="header-left">
+          <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        </div>
+      </scale-nav-segment >
+      <scale-nav-segment *ngIf="isLoggedIn">
+        <div class="header-left">
+          <a class="nav-item nav-link" routerLink="/documents" routerLinkActive="active">Documents</a>
+        </div>
+      </scale-nav-segment>
+      <scale-nav-segment *ngIf="isLoggedIn">
+        <div class="header-left">
+          <a class="nav-item nav-link" routerLink="/test-api" routerLinkActive="active">API</a>
+        </div>
+      </scale-nav-segment>
+
+     
+
+
+      <scale-nav-segment *ngIf="isLoggedIn">
+        <div class="header-right">
+          <a class="nav-item nav-link" (click)="logout()">Logout</a>
+        </div>
+      </scale-nav-segment>
+      <scale-nav-segment *ngIf="isLoggedIn">
+      <div class="header-right ">
+        <div class="navbar-nav-search">
+          <scale-text-field size="small" label="Suchen" placeholder="Altklausuren Mathe 2"></scale-text-field>
+          <h2>Testtextlänge</h2>
+        </div>
+      </div>
+      </scale-nav-segment>
+      <scale-nav-segment *ngIf="isLoggedIn">
+        <div class="header-right">
+          <div class="searchbutton">
+            <scale-button size="small">
+              <scale-icon-action-search></scale-icon-action-search>Starten
+            </scale-button>
+          </div>
+        </div>
+      </scale-nav-segment>
+    </div>
+  </scale-app-header>
+</div>
+
+<div class="footer">
+  <scale-app-footer :variant="variant">
+    <div slot="navigation">
+      <p>Contact:  <a href="MagentaDrive@mg.telekom.de">Email  </a> <a href="https://teltec.telekom.de/?login=1&imprint=1#p_privacy">Datenschutz  </a> <a href="https://teltec.telekom.de/?login=1&imprint=1#p_imprint">Impressum </a> </p>
+    </div>
+  </scale-app-footer>
+</div>
