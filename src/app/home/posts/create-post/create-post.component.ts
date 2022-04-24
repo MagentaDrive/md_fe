@@ -12,4 +12,17 @@ export class CreatePostComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  checkBoxToshowDocument() {
+    const checkBox = <HTMLInputElement> document.getElementById("myCheck");
+    const text = <HTMLInputElement> document.getElementById("Test");
+    if (checkBox.checked == true){
+      text.style.display = "block";
+    } else {
+      text.style.display = "none";
+    }
+  }
+
+  post() {
+
+  }
 }

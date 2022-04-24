@@ -12,7 +12,6 @@ const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
   { path: 'account', loadChildren: accountModule,   },
-  { path: 'documents', loadChildren: () => import('./documents/documents.module').then(m => m.DocumentsModule) },
 
 
   // otherwise redirect to home
