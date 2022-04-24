@@ -2,6 +2,15 @@
 
 ## Ergänzungen zur WAB
 
+Unter Home sind Beispielpost zu sehen, sowie das Formular zum erstellen eines Posts. Über die Checkbox kann ein Dokument an den Post angehangen werden. 
+Leider haben wir es zeitlich nicht mehr geschafft die Frontend Komponenten mit dem bereits implementierten Backend zu verbinden. Lediglich die User Verwaltung
+wird mittels Backend Service geregelt. 
+
+### Vorraussetzungen:
+md_be muss ausgeführt werden, damit die User Registrierung und das Login funktionieren.
+Ein neuer User muss über den entsprechenden Button registriert werden.
+Das Passwort muss mindestens 6 Zeichen enthalten.
+Nur so ist der Login erfolgreich.
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
