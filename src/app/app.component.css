@@ -1,1 +1,55 @@
+:host {
+    font-family:"telegrotesk-next",Calibri,"PT Sans Narrow",sans-serif;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 25px;
+}
+.header a{
+    color: white;
+    font-size: 25px;
+}
+.header h1{
+    font-size: 1px;
+    margin-left: 900px;
+}
 
+.header-left{
+    margin-top: 25px;
+    margin-right: 25px;
+}
+.header-right{
+    margin-top: 25px;
+    margin-right: 5px;
+
+}
+.footer{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+.footer a:link{
+    color: white;
+}
+.navbar-nav-search{
+    margin-left: 20px;
+}
+.searchbutton{
+    margin-top: 5px;
+}
+a:link{
+    color: white;
+}
+.header h2{
+    color: #E10075;
+    font-size: 25px
+}
