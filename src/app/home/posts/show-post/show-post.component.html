@@ -68,13 +68,13 @@
     </div>
 
     <div class="post-options">
-      <scale-button variant="secondary"><scale-icon-communication-message accessibility-title="Kommentieren"></scale-icon-communication-message>Kommentieren</scale-button>
+      <scale-button variant="secondary"  (click)="showComment()"><scale-icon-communication-message accessibility-title="Kommentieren" ></scale-icon-communication-message>Kommentieren</scale-button>
       <scale-button  variant="secondary"><scale-icon-alert-error accessibility-title="melden"></scale-icon-alert-error>melden</scale-button>
     </div>
 
-    <div class="post-comment">
-      <scale-textarea label="Kommentar" rows="2" resize="none" max-length="480"></scale-textarea>
-      <scale-button>Post</scale-button>
+    <div class="post-comment" >
+      <scale-textarea label="Kommentar" rows="2" resize="none" max-length="480" id="2" style="display: none"></scale-textarea>
+      <scale-button id="3" style="display: none">Post</scale-button>
     </div>
 
   </div>

@@ -11,5 +11,11 @@ export class ShowPostComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  showComment() {
+    const Feld = <HTMLInputElement> document.getElementById("2");
+    const Post = <HTMLInputElement> document.getElementById("3");
+      Feld.style.display = "block";
+      Post.style.display = "inline";
+    }
 
 }
