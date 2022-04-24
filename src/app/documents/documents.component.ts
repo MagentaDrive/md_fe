@@ -20,7 +20,7 @@ export class DocumentsComponent implements OnInit {
         },
 
       error => {
-        
+
       }
 
     )};
