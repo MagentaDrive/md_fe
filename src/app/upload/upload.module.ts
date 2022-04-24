@@ -6,11 +6,14 @@ import { OverviewComponent } from './upload.component';
 
 
 @NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [OverviewComponent],
-  imports: [
-    CommonModule,
-    OverviewRoutingModule
-  ]
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    declarations: [OverviewComponent],
+    exports: [
+        OverviewComponent
+    ],
+    imports: [
+        CommonModule,
+        OverviewRoutingModule
+    ]
 })
 export class OverviewModule { }

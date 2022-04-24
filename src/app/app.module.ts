@@ -10,16 +10,20 @@ import { AppComponent } from './app.component';
 import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
 import { CreatePostComponent } from './home/posts/create-post/create-post.component';
-import { ShowPostComponent } from './home/posts/show-post/show-post.component';;
+import { ShowPostComponent } from './home/posts/show-post/show-post.component';
+import {OverviewModule} from "@app/upload/upload.module";
+
+;
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        OverviewModule
+    ],
   declarations: [
     AppComponent,
     AlertComponent,

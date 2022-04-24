@@ -1,12 +1,16 @@
 <style>
-  .container{
-    margin-top: 150px;
+  label{
+    margin-right: 5px;
   }
 </style>
 
+<body>
 
-<div class="p-4">
-    <div class="container">
-      <app-show-post></app-show-post>
-    </div>
-</div>
+
+
+  <label for="myCheck">Dokument Anhängen</label>
+  <input type="checkbox" id="myCheck" (click)="myFunction()">
+  <app-overview id="Test" style="display: none"></app-overview>
+
+
+</body>

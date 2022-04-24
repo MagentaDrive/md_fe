@@ -11,6 +11,12 @@
   .app-name{
     transition-duration: 0.5s ;
   }
+  scale-nav-main{
+    font-family: "TeleNeoWeb", Calibri, "PT Sans Narrow", sans-serif;
+  }
+  scale-app-header{
+    font-family: "TeleNeoWeb", Calibri, "PT Sans Narrow", sans-serif;
+  }
 
   scale-text-field {
     width: 340px;
@@ -26,7 +32,11 @@
     z-index:1;
     margin-right: -330px;
   }
+  h1{
+    margin-top: 20px;
+  }
   .footer {
+    font-family: "TeleNeoWeb", Calibri, "PT Sans Narrow", sans-serif;
     bottom: 0px;
     right: 0px;
     left: 0px;
@@ -53,7 +63,6 @@
 
       <div slot="menu-main">
         <scale-nav-main *ngIf="isLoggedIn" [routerLinkActiveOptions]="{exact: true}" name="Home" routerLink="/" routerLinkActive="active"></scale-nav-main>
-        <scale-nav-main *ngIf="isLoggedIn" name="Upload" routerLink="/overview" routerLinkActive="active"></scale-nav-main>
         <scale-nav-main *ngIf="isLoggedIn" name="Users" routerLink="/users" routerLinkActive="active"></scale-nav-main>
         <scale-nav-main *ngIf="isLoggedIn" fill="#ffffff" name="Documents" routerLink="/documents" routerLinkActive="active"></scale-nav-main>
       </div>
@@ -74,7 +83,7 @@
     <div class="footer" slot="footer">
       <scale-app-footer :variant="angular">
         <div slot="navigation">
-          <p>Contact:  <a href="MagentaDrive@mg.telekom.de">Email  </a> <a href="https://teltec.telekom.de/?login=1&imprint=1#p_privacy">Datenschutz  </a> <a href="https://teltec.telekom.de/?login=1&imprint=1#p_imprint">Impressum </a> </p>
+          <p>Contact:  <a href="mailto:MagentaDrive@mg.telekom.de">Email  </a> <a href="https://teltec.telekom.de/?login=1&imprint=1#p_privacy">Datenschutz  </a> <a href="https://teltec.telekom.de/?login=1&imprint=1#p_imprint">Impressum </a> </p>
         </div>
       </scale-app-footer>
     </div>
