@@ -1,16 +1,24 @@
 <style>
-  label{
-    margin-right: 5px;
+  .container{
+    margin-top: 25px;
+  }
+  .container *{
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  scale-pagination{
+    margin-left: 350px;
   }
 </style>
 
-<body>
+  <div class="container">
+    <app-create-post></app-create-post>
+    <app-show-post></app-show-post>
+    <app-show-post></app-show-post>
+    <scale-pagination
+      page-size="2"
+      start-element="0"
+      total-elements="200"
+    ></scale-pagination>
+  </div>
 
-
-  <app-show-post></app-show-post>
-  <label for="myCheck">Dokument Anhängen</label>
-  <input type="checkbox" id="myCheck" (click)="myFunction()">
-  <app-overview id="Test" style="display: none"></app-overview>
-
-
-</body>

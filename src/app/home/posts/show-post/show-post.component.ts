@@ -18,4 +18,19 @@ export class ShowPostComponent implements OnInit {
       Post.style.display = "inline";
     }
 
+  like() {
+
+  }
+
+  dislike() {
+
+  }
+
+  postComment() {
+
+  }
+
+  postMelden() {
+
+  }
 }

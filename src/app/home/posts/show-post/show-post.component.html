@@ -5,6 +5,7 @@
     border-radius: 4px;
     padding: 30px 30px;
     background-color: white;
+    margin:25px;
   }
   .post-content{
     display: flex;
@@ -58,30 +59,30 @@
 <div class="post-container">
   <div class="post-content">
 
-    <h2><h6>Gepostet von <a>UserName</a> </h6>PostTitle<hr></h2>
+    <h2><h6>Gepostet von <a>Spock</a> </h6>These are the voyages...<hr></h2>
 
-    <p>Muhlenrad sie unterwegs dahinging nur dir tanzmusik plotzlich ihr. Da uberwunden neidgefuhl in nachtessen ei. So filzhut da scheint zu standen geruckt bruchig. Tor bosheit schonen tat bis klopfen wie zuhorte brachte. Ubelnehmen messingnen die aufmerksam augenblick gearbeitet das. Es getraumt befehlen an wu schmalen spateren geholfen zu. Es horen hinab kinde fu zu stand sitte. Den jenseits ehe tal gerberei ist lampchen.</p>
+    <p>
+      These are the voyages of the Starship Enterprise. Its continuing mission, to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no one has gone before. We need to neutralize the homing signal. Each unit has total environmental control, gravity, temperature, atmosphere, light, in a protective field. Sensors show energy readings in your area. We had a forced chamber explosion in the resonator coil. Field strength has increased by 3,000 percent.
+    </p>
 
     <div class="tags">
-      <scale-tag size="small">A small tag</scale-tag>
-      <scale-tag size="small">A small tag</scale-tag>
+      <scale-tag size="small">Tag</scale-tag>
+      <scale-tag size="small">Tag</scale-tag>
     </div>
-
     <div class="post-options">
       <scale-button variant="secondary"  (click)="showComment()"><scale-icon-communication-message accessibility-title="Kommentieren" ></scale-icon-communication-message>Kommentieren</scale-button>
-      <scale-button  variant="secondary"><scale-icon-alert-error accessibility-title="melden"></scale-icon-alert-error>melden</scale-button>
+      <scale-button  variant="secondary"><scale-icon-alert-error accessibility-title="melden" (click)="postMelden()"></scale-icon-alert-error>melden</scale-button>
     </div>
-
     <div class="post-comment" >
       <scale-textarea label="Kommentar" rows="2" resize="none" max-length="480" id="2" style="display: none"></scale-textarea>
-      <scale-button id="3" style="display: none">Post</scale-button>
+      <scale-button id="3" style="display: none" (click)="postComment()">Post</scale-button>
     </div>
 
   </div>
   <div class="post-voting">
-    <scale-icon-action-add accessibility-title="Hochwähli"></scale-icon-action-add>
+    <scale-button variant="secondary" (click)="like()"><scale-icon-action-add accessibility-title="Hochwähli" ></scale-icon-action-add></scale-button>
     <h6>25</h6>
-    <scale-icon-action-indeterminate accessibility-title="Runterwähli"></scale-icon-action-indeterminate>
+    <scale-button variant="secondary" (click)="dislike()"><scale-icon-action-indeterminate accessibility-title="Runterwähli" ></scale-icon-action-indeterminate></scale-button>
   </div>
 
 </div>

@@ -1,0 +1,42 @@
+<style>
+  .post-container{
+    border: 1px black solid;
+    border-radius: 4px;
+    padding: 25px;
+    background-color: white;
+    margin: 25px;
+
+  }
+  scale-button{
+    position: relative;
+    right:0px;
+  }
+</style>
+
+<div class="post-container">
+  <h6>Schreibe einen Post:</h6>
+  <hr/>
+    <div class="form-row">
+      <div class="form-group col">
+      <scale-text-field id="text-field" size="small" label="Post-Titel"></scale-text-field>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col">
+        <scale-text-field id="text-field"  size="small" label="Hochschule"></scale-text-field>
+      </div>
+      <div class="form-group col">
+        <scale-text-field id="text-field"  size="small" label="Jahrgang"></scale-text-field>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col">
+      <scale-textarea label="Post..." rows="3" resize="none" max-length="480"></scale-textarea>
+      </div>
+    </div>
+    <label for="myCheck">Dokument Anhängen</label>
+    <input type="checkbox" id="myCheck" (click)="checkBoxToshowDocument()">
+    <app-overview id="Test" style="display: none"></app-overview>
+    <hr/>
+    <scale-button (click)="post()">Post</scale-button>
+</div>

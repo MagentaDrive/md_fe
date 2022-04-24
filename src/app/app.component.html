@@ -25,7 +25,7 @@
   .app-container{
     margin-top:0;
     width: 100%;
-    height: 800px;
+    height: 1600px;
   }
   .search-icon{
     position: relative;
@@ -64,7 +64,6 @@
       <div slot="menu-main">
         <scale-nav-main *ngIf="isLoggedIn" [routerLinkActiveOptions]="{exact: true}" name="Home" routerLink="/" routerLinkActive="active"></scale-nav-main>
         <scale-nav-main *ngIf="isLoggedIn" name="Users" routerLink="/users" routerLinkActive="active"></scale-nav-main>
-        <scale-nav-main *ngIf="isLoggedIn" fill="#ffffff" name="Documents" routerLink="/documents" routerLinkActive="active"></scale-nav-main>
       </div>
 
       <div *ngIf="isLoggedIn"  slot="menu-icon">
@@ -73,6 +72,7 @@
         <scale-nav-icon (click)="logout()" icon="action-logout"> Logout </scale-nav-icon>
       </div>
     </scale-app-header>
+
     <div [ngClass]="{ 'bg-light': isLoggedIn }" class="app-container">
       <alert></alert>
       <router-outlet></router-outlet>
