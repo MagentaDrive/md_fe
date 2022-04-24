@@ -13,13 +13,13 @@
   }
 
   scale-text-field {
-      width: 340px;
+    width: 340px;
   }
 
   .app-container{
-      margin-top:0;
-      width: 100%;
-      height: 800px;
+    margin-top:0;
+    width: 100%;
+    height: 800px;
   }
   .search-icon{
     position: relative;
@@ -32,9 +32,9 @@
     left: 0px;
   }
 
-    .footer a:link {
-      color: white;
-    }
+  .footer a:link {
+    color: white;
+  }
 
   a:link {
     color: white;
@@ -44,39 +44,39 @@
   }
 
 </style>
-<body>
-<scale-app-shell>
-  <scale-app-header slot="header" id="header" portalName="MagentaDrive">
+  <body>
+  <scale-app-shell>
+    <scale-app-header id="header" portalName="MagentaDrive" slot="header">
       <div slot="menu-sector">
-              <h1 class="app-name">MagentaDrive</h1>
+        <h1 class="app-name">MagentaDrive</h1>
       </div>
 
       <div slot="menu-main">
-          <scale-nav-main name="Home" *ngIf="isLoggedIn" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"></scale-nav-main>
-          <scale-nav-main name="Upload" *ngIf="isLoggedIn" routerLink="/overview" routerLinkActive="active"></scale-nav-main>
-          <scale-nav-main name="Users" *ngIf="isLoggedIn" routerLink="/users" routerLinkActive="active"></scale-nav-main>
-          <scale-nav-main name="Documents" *ngIf="isLoggedIn" fill="#ffffff" routerLink="/documents" routerLinkActive="active"></scale-nav-main>
+        <scale-nav-main *ngIf="isLoggedIn" [routerLinkActiveOptions]="{exact: true}" name="Home" routerLink="/" routerLinkActive="active"></scale-nav-main>
+        <scale-nav-main *ngIf="isLoggedIn" name="Upload" routerLink="/overview" routerLinkActive="active"></scale-nav-main>
+        <scale-nav-main *ngIf="isLoggedIn" name="Users" routerLink="/users" routerLinkActive="active"></scale-nav-main>
+        <scale-nav-main *ngIf="isLoggedIn" fill="#ffffff" name="Documents" routerLink="/documents" routerLinkActive="active"></scale-nav-main>
       </div>
 
-      <div slot="menu-icon"  *ngIf="isLoggedIn">
-          <scale-nav-icon class="search-icon" icon="action-search"></scale-nav-icon>
-          <scale-text-field id="text-field" label="Search"></scale-text-field>
-          <scale-nav-icon icon="action-logout" (click)="logout()"> Logout </scale-nav-icon>
+      <div *ngIf="isLoggedIn"  slot="menu-icon">
+        <scale-nav-icon class="search-icon" icon="action-search"></scale-nav-icon>
+        <scale-text-field id="text-field" label="Search"></scale-text-field>
+        <scale-nav-icon (click)="logout()" icon="action-logout"> Logout </scale-nav-icon>
       </div>
-  </scale-app-header>
-    <div class="app-container" [ngClass]="{ 'bg-light': isLoggedIn }">
-        <alert></alert>
-        <router-outlet></router-outlet>
+    </scale-app-header>
+    <div [ngClass]="{ 'bg-light': isLoggedIn }" class="app-container">
+      <alert></alert>
+      <router-outlet></router-outlet>
     </div>
 
-<!-- main app container -->
+    <!-- main app container -->
 
-<div class="footer" slot="footer">
-  <scale-app-footer :variant="angular">
-    <div slot="navigation">
-      <p>Contact:  <a href="MagentaDrive@mg.telekom.de">Email  </a> <a href="https://teltec.telekom.de/?login=1&imprint=1#p_privacy">Datenschutz  </a> <a href="https://teltec.telekom.de/?login=1&imprint=1#p_imprint">Impressum </a> </p>
+    <div class="footer" slot="footer">
+      <scale-app-footer :variant="angular">
+        <div slot="navigation">
+          <p>Contact:  <a href="MagentaDrive@mg.telekom.de">Email  </a> <a href="https://teltec.telekom.de/?login=1&imprint=1#p_privacy">Datenschutz  </a> <a href="https://teltec.telekom.de/?login=1&imprint=1#p_imprint">Impressum </a> </p>
+        </div>
+      </scale-app-footer>
     </div>
-  </scale-app-footer>
-</div>
-</scale-app-shell>
+  </scale-app-shell>
 <body>
